@@ -89,8 +89,26 @@ public class Transition implements Comparable<Transition>{
 
 	@Override
 	public String toString() {
-		return "\n Transition [from=" + from + ", to=" + to + ", read=" + read + ", write=" + write
+		return "\n  Transition [from=" + from + ", to=" + to + ", read=" + read + ", write=" + write
 				+ ", direction=" + direction + "]";
+	}
+	
+	public String printTransition() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("Transition [ ");
+		sb.append(from);
+		sb.append(" -> ");
+		sb.append(to);
+		sb.append(" | read: ");
+		sb.append(read);
+		sb.append(", write: ");
+		sb.append(write);
+		sb.append(", direction: ");
+		sb.append(direction);
+		sb.append(" ]");
+		
+		return sb.toString(); 
 	}
 
 	@Override

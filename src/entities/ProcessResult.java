@@ -2,7 +2,7 @@ package entities;
 
 public class ProcessResult {
 	private String tape;
-	private String result_tape;
+	private String resultTape;
 	private boolean accepted;
 	private boolean loop;
 
@@ -10,9 +10,9 @@ public class ProcessResult {
 
 	}
 
-	public ProcessResult(String tape, String result_tape, boolean accepted, boolean loop) {
+	public ProcessResult(String tape, String resultTape, boolean accepted, boolean loop) {
 		this.tape = tape;
-		this.result_tape = result_tape;
+		this.resultTape = resultTape;
 		this.accepted = accepted;
 		this.loop = loop;
 	}
@@ -26,11 +26,11 @@ public class ProcessResult {
 	}
 
 	public String getResult_tape() {
-		return result_tape;
+		return resultTape;
 	}
 
-	public void setResult_tape(String result_tape) {
-		this.result_tape = result_tape;
+	public void setResult_tape(String resultTape) {
+		this.resultTape = resultTape;
 	}
 
 	public boolean isAccepted() {
@@ -51,7 +51,7 @@ public class ProcessResult {
 
 	@Override
 	public String toString() {
-		return "ProcessResult [tape=" + tape + ", result_tape=" + result_tape + ", accepted=" + accepted + ", loop="
+		return "Result [Read tape: " + tape + ", Write tape: " + resultTape + ", Accepted? " + accepted + ", In Loop? "
 				+ loop + "]";
 	}
 

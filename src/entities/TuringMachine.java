@@ -108,7 +108,10 @@ public class TuringMachine {
 		transitions.add(transition);
 	}
 	
-	public ProcessResult run(String tape) {
+	public ProcessResult run(String tape, boolean silentMode) {
+		if(tape == null) {
+			throw new TuringMachineException("Tape was null");
+		}
 		ProcessResult result = new ProcessResult(tape, null, false, false);
 		String state = initialState;
 		
@@ -127,33 +130,41 @@ public class TuringMachine {
 		
 		while(!stop) {
 			char c = auxTape[i];
-
+			
+			if(silentMode) System.out.print("In State: " + state);
+			
 			if(isFinalState(state)) {
-				resultTape = auxTape.toString();
+				if(silentMode) System.out.println(", this is the Final State!");
+				resultTape = new String(auxTape);	
 				result.setAccepted(true);
-				result.setResult_tape(auxTape.toString());
+				result.setResult_tape(resultTape);
 				break;
 			}
 			
-			Transition transition = findTransition(state, c);;
+			if(silentMode) System.out.println(" | read: " + c);
+
+			Transition transition = findTransition(state, c);
+			if(silentMode && transition != null) System.out.println(transition.printTransition());
 				
 			if(transition != null) {
 				auxTape[i] = transition.getWrite();
-				if(transition.getDirection() == 'D'){
+				if(transition.getDirection() == 'D' || transition.getDirection() == 'R'){
 					i++;
-				}else if(transition.getDirection() == 'E') {
+				}else if(transition.getDirection() == 'E' || transition.getDirection() == 'L') {
 					i--;
 					if(i < 0) {
-						resultTape = auxTape.toString();
+						resultTape = new String(auxTape);
 						result.setAccepted(false);
 						result.setResult_tape(resultTape);
 						break;
 					}
 				}
+				if(silentMode) System.out.println("ResultTape: "+ new String(auxTape)+ "\n");
+				
 				state = transition.getTo();
 				
 			}else {
-				resultTape = auxTape.toString();
+				resultTape = new String(auxTape);	
 				result.setAccepted(false);
 				result.setResult_tape(resultTape);
 				break;
@@ -166,9 +177,17 @@ public class TuringMachine {
 
 	@Override
 	public String toString() {
-		return "TuringMachine [\n name=" + name + ",\n alphabet=" + alphabet + ",\n states=" + states + ",\n initialState="
-				+ initialState + ",\n finalStates=" + finalStates + ",\n auxAlphabet=" + auxAlphabet + ",\n whiteChar="
-				+ whiteChar + ",\n initialchar=" + initialchar + "\n transitions= " + transitions + "\n]";
+		return "TuringMachine [\n "
+				+ "name: " + name
+				+ ",\n alphabet: " + alphabet
+				+ ",\n states: " + states
+				+ ",\n initial State: " + initialState
+				+ ",\n final States: " + finalStates 
+				+ ",\n aux Alphabet: " + auxAlphabet 
+				+ ",\n white Char: " + whiteChar 
+				+ ",\n initial Char: " + initialchar 
+				+ ",\n transitions:  " + transitions 
+				+ "\n]";
 	}
 
 	
