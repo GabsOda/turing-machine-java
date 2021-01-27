@@ -1,11 +1,15 @@
 package services;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import entities.ProcessResult;
 import entities.Transition;
 import entities.TuringMachine;
 import entities.TuringMachineException;
@@ -126,6 +130,19 @@ public class TuringMachineServices {
 			return tm;
 		} catch (IOException io) {
 			throw new TuringMachineException("Error read file");
+		}
+	}
+	
+	
+	public static boolean outputWriter(List<ProcessResult> list, String path, boolean append) {
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, append))){
+			for(ProcessResult result: list) {
+				bw.write(result.toString());
+				bw.newLine();
+			}
+			return true;
+		}catch(IOException e) {
+			return false;
 		}
 	}
 	
