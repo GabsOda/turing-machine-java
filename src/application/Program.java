@@ -20,8 +20,14 @@ public class Program {
 		String turingMachinePath = sc.nextLine();
 
 		TuringMachine tm = TuringMachineServices.FileReaderTxt(turingMachinePath);
-		System.out.println(tm);
+		
+		System.out.print("Show the turing machine settings? (y, n): ");
+		char printTMConfig = sc.next().charAt(0);
+		if (printTMConfig == 'y') {
+			System.out.println(tm);
+		} 
 
+		sc.nextLine();
 		System.out.println("Enter the file path of the input: ");
 		String inputPath = sc.nextLine();
 
@@ -52,8 +58,6 @@ public class Program {
 		String[] path = inputPath.split("input");
 		String outputPath = path[0] + "output" + path[1];
 
-		
-		System.out.println();
 		boolean appendWrite;
 		System.out.print("Rewrite the output file? (y, n): ");
 		char appendWriterChar = sc.next().charAt(0);

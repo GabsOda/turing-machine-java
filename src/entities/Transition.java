@@ -96,11 +96,11 @@ public class Transition implements Comparable<Transition>{
 	public String printTransition() {
 		StringBuilder sb = new StringBuilder();
 
-		sb.append("Transition [ ");
+		sb.append("=> { ");
 		sb.append(from);
 		sb.append(" -> ");
 		sb.append(to);
-		sb.append(" | read: ");
+		sb.append(" } -> read: ");
 		sb.append(read);
 		sb.append(", write: ");
 		sb.append(write);

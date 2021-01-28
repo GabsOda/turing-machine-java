@@ -134,7 +134,7 @@ public class TuringMachine {
 			if(silentMode) System.out.print("In State: " + state);
 			
 			if(isFinalState(state)) {
-				if(silentMode) System.out.println(", this is the Final State!");
+				if(silentMode) System.out.println(", this is the Final State!\n");
 				resultTape = new String(auxTape);	
 				result.setAccepted(true);
 				result.setResult_tape(resultTape);
@@ -189,8 +189,4 @@ public class TuringMachine {
 				+ ",\n transitions:  " + transitions 
 				+ "\n]";
 	}
-
-	
-	
-	
 }

@@ -51,8 +51,7 @@ public class ProcessResult {
 
 	@Override
 	public String toString() {
-		return "Result [Read tape: " + tape + ", Write tape: " + resultTape + ", Accepted? " + accepted + ", In Loop? "
-				+ loop + "]";
+		return " - { Tape: " + tape + " -> result: " + resultTape + " } => Accepted? " + accepted + ", In Loop? "+ loop + "";
 	}
 
 }
