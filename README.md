@@ -2,7 +2,7 @@
 
 Repositório criado contendo uma simples implementação da maquina de Turing em java. 
 
-## Instruções para rodar 
+## Instruções
 
 Será necessário apresentar uma configuração dessa máquina como mostra no arquivo mt-dual-balance-config.txt acima, sendo obrigatório que o arquivo esteja na formatação em que mostra o arquivo exemplo. 
 

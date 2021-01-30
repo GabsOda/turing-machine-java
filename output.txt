@@ -1,0 +1,4 @@
+ - { Tape: aabb -> result: %AABB_ } => Accepted? true, In Loop? false
+ - { Tape: aaabbb -> result: %AAABBB_ } => Accepted? true, In Loop? false
+ - { Tape: abb -> result: %ABb_ } => Accepted? false, In Loop? false
+ - { Tape: baa -> result: %baa_ } => Accepted? false, In Loop? false
