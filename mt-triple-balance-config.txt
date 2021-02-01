@@ -1,0 +1,27 @@
+	MT = Triplo Balanceamento
+S = {a,b,c}
+Q = {s0,s1,s2,s3,s4,s5,s6}
+q0 = s0
+F = {s6}
+V = {A,B,C}
+S_B = _
+S_I = %
+DELTA
+(s0,s0):(%,%,D)
+(s0,s1):(a,A,D)
+(s0,s4):(B,B,D)
+(s1,s1):(a,a,D)
+(s1,s1):(B,B,D)
+(s1,s2):(b,B,D)
+(s2,s2):(b,b,D)
+(s2,s2):(C,C,D)
+(s2,s3):(c,C,E)
+(s3,s3):(a,a,E)
+(s3,s3):(b,b,E)
+(s3,s3):(B,B,E)
+(s3,s3):(C,C,E)
+(s3,s0):(A,A,D)
+(s4,s4):(B,B,D)
+(s4,s5):(C,C,D)
+(s5,s5):(C,C,D)
+(s5,s6):(_,_,D)

@@ -1,4 +1,4 @@
- - { Tape: aabb -> result: %AABB_ } => Accepted? true, In Loop? false
- - { Tape: aaabbb -> result: %AAABBB_ } => Accepted? true, In Loop? false
- - { Tape: abb -> result: %ABb_ } => Accepted? false, In Loop? false
- - { Tape: baa -> result: %baa_ } => Accepted? false, In Loop? false
+ - { Tape: abc -> result: %ABC_ } => Accepted? true, In Loop? false
+ - { Tape: aabbcc -> result: %AABBCC_ } => Accepted? true, In Loop? false
+ - { Tape: abbc -> result: %ABbC_ } => Accepted? false, In Loop? false
+ - { Tape: cbaa -> result: %cbaa_ } => Accepted? false, In Loop? false

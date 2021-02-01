@@ -23,7 +23,7 @@ public class TuringMachineServices {
 			// name
 			String[] fields = line.split("= ");
 			String configName = fields[1];
-//			System.out.println(configName);
+			//System.out.println(configName);
 
 			// alphabet
 			line = br.readLine();
@@ -33,11 +33,12 @@ public class TuringMachineServices {
 			for (int i = 1; i < fields.length; i++) {
 				alphabet.add(fields[i].charAt(0));
 			}
+			/*
+			for(char c : alphabet) {
+				System.out.println(c);
+			}
+			*/
 			
-//			for(char c : alphabet) {
-//				System.out.println(c);
-//			}
-
 			// states
 			line = br.readLine();
 			fields = line.split(",");
@@ -48,15 +49,17 @@ public class TuringMachineServices {
 				auxSplitState = "" + fields[i].charAt(0) + fields[i].charAt(1);
 				states.add(auxSplitState);
 			}
-//			for(String str : states) {
-//				System.out.println(str);
-//			}
+			/*
+			for(String str : states) {
+				System.out.println(str);
+			} 
+			*/	
 
 			// initialState
 			line = br.readLine();
 			fields = line.split("= ");
 			String initialState = fields[1];
-//			System.out.println(initialState);
+			//System.out.println(initialState);
 
 			// finalStates
 			line = br.readLine();
@@ -79,24 +82,25 @@ public class TuringMachineServices {
 			for (int i = 1; i < fields.length; i++) {
 				auxAlphabet.add(fields[i].charAt(0));
 			}
-//			for(char c : auxAlphabet) {
-//				System.out.println(c);
-//			}
+			/*
+			for(char c : auxAlphabet) {
+				System.out.println(c);
+			}*/
 
 			// WhiteChar
 			line = br.readLine();
 			fields = line.split("= ");
 			char whiteChar = fields[1].charAt(0);
-//			System.out.println(whiteChar);
+			//System.out.println(whiteChar);
 
 			// InitialChar
 			line = br.readLine();
 			fields = line.split("= ");
 			char InitialChar = fields[1].charAt(0);
-//			System.out.println(InitialChar);
+			//System.out.println(InitialChar);
 
 			line = br.readLine();
-//			System.out.println(line);
+			//System.out.println(line);
 			
 			//transitions
 			line = br.readLine();
@@ -110,7 +114,7 @@ public class TuringMachineServices {
 				String transitionTo = transitionStates[1].substring(0, transitionStates[1].length() - 1);
 				
 				String[] transitionsChars = fields[1].split(",");			
-				char transitionRead = transitionsChars[0].substring(1).charAt(0);
+				char transitionRead = transitionsChars[0].substring(1).charAt(0);	
 				char transitionWrite = transitionsChars[1].charAt(0);
 				char transitionDirection = transitionsChars[2].substring(0, transitionsChars[2].length() -1).charAt(0);
 				
@@ -120,11 +124,11 @@ public class TuringMachineServices {
 				line = br.readLine();		
 				i++;
 			}
-			
-//			for(Transition tran : transitions) {
-//				System.out.println(tran);
-//			}
-			
+			/*
+			for(Transition tran : transitions) {
+				System.out.println(tran);
+			}
+			*/
 			TuringMachine tm = new TuringMachine(configName, alphabet, states, initialState, finalStates, auxAlphabet, whiteChar, InitialChar, transitions);
 			
 			return tm;
