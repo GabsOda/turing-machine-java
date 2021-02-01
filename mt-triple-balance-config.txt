@@ -1,4 +1,4 @@
-	MT = Triplo Balanceamento
+MT = Triplo Balanceamento
 S = {a,b,c}
 Q = {s0,s1,s2,s3,s4,s5,s6}
 q0 = s0
